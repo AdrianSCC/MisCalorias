@@ -71,9 +71,32 @@
       <!-- Aquí se mostrarán los alimentos -->
     </tbody>
   </table>
+
+  <button id="btnGuardar" class="btn btn-primary">Cargar Alimentos por defecto</button>
+  <button id="btnBorrar" class="btn btn-primary">Borrar Todos los datos</button>
+
 </div>
 
 <script src="../js/alimentos.js"></script>
+<script>
+  document.getElementById('btnGuardar').addEventListener('click', function() {
+    guardarAlimentos();
+    alert('Alimentos guardados en localStorage');
+    mostrarAlimentos();
+  });
+
+  function borrarTodosAlimentos() {
+    localStorage.removeItem('alimentos');
+    console.log('Todos los alimentos han sido borrados.');
+  }
+
+
+  document.getElementById('btnBorrar').addEventListener('click', function() {
+    borrarTodosAlimentos();
+    mostrarAlimentos();
+  });
+</script>
+
 <script>
   const form = document.getElementById('formAlimento');
   const tablaBody = document.querySelector('#tablaAlimentos tbody');

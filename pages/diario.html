@@ -36,7 +36,7 @@
 
   <!-- Formulario para añadir registros -->
   <form id="registroForm" class="row g-3 mb-4">
-	<div class="col-md-2">
+	<div class="col-md-4">
 	  <label for="comida" class="form-label">Comida</label>
 	  <select class="form-select" id="comida" required>
 		<option value="" disabled selected>Selecciona una opción</option>
@@ -47,7 +47,7 @@
 		<option value="cena">Cena</option>
 	  </select>
 	</div>
-    <div class="col-md-3">
+    <div class="col-md-6">
       <label for="ingrediente" class="form-label">Ingrediente</label>
       <select class="form-select" id="ingrediente" required>
         <option value="" disabled selected>Selecciona un ingrediente</option>
@@ -60,6 +60,7 @@
     </div>
     <div class="col-12">
       <button type="submit" class="btn btn-primary">Añadir Registro</button>
+      <button id="btnGuardar" class="btn btn-primary">Cargar Alimentos</button>
     </div>
   </form>
 
@@ -92,6 +93,14 @@
   </table>
 </div>
 
+<script src="../js/alimentos.js"></script>
+<script>
+  document.getElementById('btnGuardar').addEventListener('click', function() {
+    guardarAlimentos();
+    alert('Alimentos guardados en localStorage');
+    llenarSelectIngredientes();
+  });
+</script>
 <script>
   const form = document.getElementById('registroForm');
   const tablaBody = document.querySelector('#tablaRegistros tbody');
