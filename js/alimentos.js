@@ -156,7 +156,8 @@ const alimentos = [
   { nombre: "PAN - PICOS INTEGRALES", calorias: 3.79, grasas: 0.064, hidratos: 0.609, proteina: 0.14 },
   { nombre: "PAN - PIQUITOS CON SALVADO", calorias: 3.78, grasas: 0.034, hidratos: 0.724, proteina: 0.115 },
   { nombre: "PAN - PICATOSTES FRITOS", calorias: 5.19, grasas: 0.281, hidratos: 0.57, proteina: 0.085 },
-  { nombre: "PAN - PICATOSTES TOSTADOS", calorias: 3.75, grasas: 0.017, hidratos: 0.78, proteina: 0.098 }
+  { nombre: "PAN - PICATOSTES TOSTADOS", calorias: 3.75, grasas: 0.017, hidratos: 0.78, proteina: 0.098 },
+  { nombre: "COLA CAO", calorias: 3.77, grasas: 0.025, hidratos: 0.78, proteina: 0.066 }
 ];
 
 
