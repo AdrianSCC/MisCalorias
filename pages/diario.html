@@ -68,6 +68,7 @@
     <div class="col-12">
       <button type="submit" class="btn btn-primary">Añadir Registro</button>
       <button id="btnGuardar" class="btn btn-primary">Cargar Alimentos</button>
+      <button id="btnEliminarDiario" class="btn btn-primary">Borrar Diario</button>
     </div>
   </form>
 
@@ -101,11 +102,18 @@
 </div>
 
 <script src="../js/alimentos.js"></script>
+<script src="../js/diario.js"></script>
 <script>
   document.getElementById('btnGuardar').addEventListener('click', function() {
     guardarAlimentos();
     alert('Alimentos guardados en localStorage');
     llenarSelectIngredientes();
+  });
+
+  document.getElementById('btnEliminarDiario').addEventListener('click', function() {
+    borrarDiario();
+    alert('Diario Borrado');
+    llenarDiario();
   });
 </script>
 <script>
@@ -146,7 +154,7 @@
 
     fila.innerHTML = `
       <td>${comida}</td>
-	  <td>${ingrediente}</td>
+	    <td>${ingrediente}</td>
       <td>${cantidad}</td>
       <td>${calorias}</td>
       <td>${grasas}</td>
@@ -168,6 +176,19 @@
 	  document.getElementById('totalGrasas').textContent = totalGrasas.toFixed(2);
 	  document.getElementById('totalHidratos').textContent = totalHidratos.toFixed(2);
 	  document.getElementById('totalProteinas').textContent = totalProteinas.toFixed(2);
+
+    //guardar en localstore
+    const diario = {
+      comida: comida,
+      ingrediente: ingrediente,
+      cantidad: cantidad,
+      calorias: calorias,
+      grasas: grasas,
+      hidratos: hidratos,
+      proteina: proteinas
+    };
+
+    guardarDiario(diario);
 
     // Limpiar el formulario
     form.reset();
@@ -196,8 +217,55 @@
     });
   }
 
+  function leerDiario() {
+    const datos = localStorage.getItem('diario');
+    return datos ? JSON.parse(datos) : [];
+  }
+
+  // Función para llenar el diario
+  function llenarDiario() {
+    const diario = leerDiario();
+    const tablaBody = document.querySelector('#tablaRegistros tbody');
+    
+    // Vaciar tabla antes de añadir nuevas filas
+    tablaBody.innerHTML = '';
+
+    // Inicializar totales
+    let totalCalorias = 0;
+    let totalGrasas = 0;
+    let totalHidratos = 0;
+    let totalProteinas = 0;
+
+    diario.forEach(item => {
+      // Crear una nueva fila en la tabla
+      const fila = document.createElement('tr');
+      fila.innerHTML = `
+        <td>${item.comida}</td>
+        <td>${item.ingrediente}</td>
+        <td>${item.cantidad}</td>
+        <td>${item.calorias}</td>
+        <td>${item.grasas}</td>
+        <td>${item.hidratos}</td>
+        <td>${item.proteinas}</td>
+      `;
+      tablaBody.appendChild(fila);
+
+      // Sumar totales (asegúrate que sean números)
+      totalCalorias += parseFloat(item.calorias) || 0;
+      totalGrasas += parseFloat(item.grasas) || 0;
+      totalHidratos += parseFloat(item.hidratos) || 0;
+      totalProteinas += parseFloat(item.proteinas) || 0;
+    });
+    // Mostrar totales en el pie de tabla
+    document.getElementById('totalCalorias').textContent = totalCalorias.toFixed(2);
+    document.getElementById('totalGrasas').textContent = totalGrasas.toFixed(2);
+    document.getElementById('totalHidratos').textContent = totalHidratos.toFixed(2);
+    document.getElementById('totalProteinas').textContent = totalProteinas.toFixed(2);
+  }
+
   // Llamar a la función al cargar la página
   window.addEventListener('DOMContentLoaded', llenarSelectIngredientes);
+  window.addEventListener('DOMContentLoaded', llenarDiario);
   document.addEventListener("DOMContentLoaded", function () {
     $('#ingrediente').select2({
       placeholder: "Selecciona un ingrediente",
