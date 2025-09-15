@@ -149,7 +149,14 @@ const alimentos = [
   { nombre: "PULPO", calorias: 0.7, proteina: 0.007, hidratos: 0, grasas: 0.16 },
   { nombre: "MERLUZA", calorias: 0.98, proteina: 0.03, hidratos: 0.02, grasas: 0.152 },
   { nombre: "GAMBAS PELADAS", calorias: 0.72, proteina: 0.01, hidratos: 0, grasas: 0.147 },
-  { nombre: "BACALAO", calorias: 0.51, proteina: 0.03, hidratos: 0.02, grasas: 0.14 }
+  { nombre: "BACALAO", calorias: 0.51, proteina: 0.03, hidratos: 0.02, grasas: 0.14 },
+  { nombre: "PAN - PICOS SALADITOS", calorias: 4.66, grasas: 0.183, hidratos: 0.639, proteina: 0.097 },
+  { nombre: "PAN - REGAÑAS", calorias: 4.48, grasas: 0.15, hidratos: 0.65, proteina: 0.118 },
+  { nombre: "PAN - PICO CAMPEROS", calorias: 3.94, grasas: 0.023, hidratos: 0.8, proteina: 0.115 },
+  { nombre: "PAN - PICOS INTEGRALES", calorias: 3.79, grasas: 0.064, hidratos: 0.609, proteina: 0.14 },
+  { nombre: "PAN - PIQUITOS CON SALVADO", calorias: 3.78, grasas: 0.034, hidratos: 0.724, proteina: 0.115 },
+  { nombre: "PAN - PICATOSTES FRITOS", calorias: 5.19, grasas: 0.281, hidratos: 0.57, proteina: 0.085 },
+  { nombre: "PAN - PICATOSTES TOSTADOS", calorias: 3.75, grasas: 0.017, hidratos: 0.78, proteina: 0.098 }
 ];
 
 

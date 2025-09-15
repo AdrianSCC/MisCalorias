@@ -1,6 +1,6 @@
 body {
   background: #2A7B9B;
-background: linear-gradient(90deg, rgba(42, 123, 155, 1) 0%, rgba(21, 63, 79, 1) 100%);
+  background: linear-gradient(90deg, rgba(42, 123, 155, 1) 0%, rgba(21, 63, 79, 1) 100%);
   min-height: 100vh;
   margin: 0;
   color: #E6C245; /* Color principal del texto */
